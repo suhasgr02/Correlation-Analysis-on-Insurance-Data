@@ -3,6 +3,7 @@ library(ggplot2)       # For data visualization
 library(reshape2)      # For reshaping data
 library(corrplot)      # For correlation matrix plot
 library(dplyr)         # For data manipulation
+library(GGally)        #Pairwise plot visualization
 
 # Read the dataset
 insurance_data <- read.csv("C:/Users/suhas/Desktop/Suhas Projects/Data Sets/insurance details.csv")
@@ -31,6 +32,7 @@ print(correlation_matrix)
 corrplot(correlation_matrix, method = "color", addCoef.col = "black", 
          tl.col = "black", tl.srt = 45, number.cex = 0.7, 
          col = colorRampPalette(c("blue", "white", "red"))(200))
+
 
 # Step 3: Scatterplots for individual relationships
 # Scatterplot for age vs charges
@@ -81,5 +83,4 @@ ggplot(insurance_data, aes(x = sex, y = charges, fill = sex)) +
        x = "Sex", 
        y = "Insurance Charges") +
   theme_minimal()
-
 
